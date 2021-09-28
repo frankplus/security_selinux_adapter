@@ -1,0 +1,9 @@
+rm -f /data/abcd.txt
+rm -f /data/abcd2.txt
+rm -f /data/abcd3.txt
+echo abcd >/data/abcd.txt
+setfilecon 'u:object_r:data_file:s0' /data/abcd.txt
+echo abcd2 >/data/abcd2.txt
+setfilecon 'u:object_r:data_file:s0' /data/abcd2.txt
+echo abcd3 >/data/abcd3.txt
+setfilecon 'u:object_r:app_data_file:s0' /data/abcd3.txt
