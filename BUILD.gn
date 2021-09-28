@@ -2,7 +2,7 @@ SELINUX_ROOT_DIR = "//base/security/selinux"
 
 ohos_executable("selinux_test") {
   install_enable = true
-  sources = [ "$SELINUX_ROOT_DIR/demo/demoloop.c" ]
+  sources = [ "$SELINUX_ROOT_DIR/test/selinux_test.c" ]
   cflags = [
     "-D_GNU_SOURCE",
     "-DUSE_PCRE2",
@@ -17,7 +17,7 @@ ohos_executable("selinux_test") {
 }
 
 action("build_policy") {
-  script = "demo/build_policy.sh"
+  script = "scripts/build_policy.sh"
   deps = [
     ":checkpolicy($host_toolchain)",
     ":secilc($host_toolchain)",
@@ -25,21 +25,21 @@ action("build_policy") {
   outputs = [ "$root_out_dir/" ]
 }
 
-ohos_prebuilt_etc("config") {
-  source = "$SELINUX_ROOT_DIR/demo/config"
+ohos_prebuilt_etc("build_sepolicy") {
+  deps = [ ":build_policy" ]
+  source = "$SELINUX_ROOT_DIR/sepolicy/policy.31"
   part_name = "selinux"
-  relative_install_dir = "selinux"
+  relative_install_dir = "selinux/targeted/policy/"
 }
 
-ohos_prebuilt_etc("precompiled_sepolicy") {
-  deps = [ ":build_policy" ]
-  source = "$SELINUX_ROOT_DIR/demo/policy.31"
+ohos_prebuilt_etc("config") {
+  source = "$SELINUX_ROOT_DIR/config/config"
   part_name = "selinux"
-  relative_install_dir = "selinux/targeted/policy"
+  relative_install_dir = "selinux/"
 }
 
 ohos_prebuilt_etc("file_contexts") {
-  source = "$SELINUX_ROOT_DIR/demo/file_contexts"
+  source = "$SELINUX_ROOT_DIR/sepolicy/file_contexts"
   part_name = "selinux"
-  relative_install_dir = "selinux/targeted/contexts/files"
+  relative_install_dir = "selinux/targeted/contexts/files/"
 }

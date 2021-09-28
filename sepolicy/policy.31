@@ -1,3 +1,4 @@
-                                           README 
-    This file is needed by ohos_prebuilt_etc("precompiled_sepolicy") --> third_party/selinux/BUILD.gn
+! DO NOT DELETE THIS FILE !
+
+This needed by ohos_prebuilt_etc("precompiled_sepolicy") in ..//BUILD.gn
 
