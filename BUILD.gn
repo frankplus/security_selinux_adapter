@@ -29,7 +29,12 @@ ohos_prebuilt_etc("build_sepolicy") {
   deps = [ ":build_policy" ]
   source = "$SELINUX_ROOT_DIR/sepolicy/policy.31"
   part_name = "selinux"
-  relative_install_dir = "selinux/targeted/policy/"
+
+  # FIXME 此处不应该改变 policy_path 的约定路径！
+  # 因为 OpenHarmony 的 e2fsdroid 无法支持五级系统目录，所以在此作出规避，
+  # 但是很显然这是不应当的。
+  #relative_install_dir = "selinux/targeted/policy/"
+  relative_install_dir = "selinux/targeted/"
 }
 
 ohos_prebuilt_etc("config") {
