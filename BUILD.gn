@@ -9,8 +9,8 @@ ohos_executable("selinux_test") {
     "-w",
   ]
   deps = [
-    ":libpcre2",
-    ":libselinux",
+    "//third_party/pcre2:libpcre2",
+    "//third_party/selinux:libselinux",
   ]
   part_name = "selinux"
   subsystem_name = "security"
@@ -19,8 +19,8 @@ ohos_executable("selinux_test") {
 action("build_policy") {
   script = "scripts/build_policy.sh"
   deps = [
-    ":checkpolicy($host_toolchain)",
-    ":secilc($host_toolchain)",
+    "//third_party/selinux:checkpolicy($host_toolchain)",
+    "//third_party/selinux:secilc($host_toolchain)",
   ]
   outputs = [ "$root_out_dir/" ]
 }
@@ -29,12 +29,7 @@ ohos_prebuilt_etc("build_sepolicy") {
   deps = [ ":build_policy" ]
   source = "$SELINUX_ROOT_DIR/sepolicy/policy.31"
   part_name = "selinux"
-
-  # FIXME 此处不应该改变 policy_path 的约定路径！
-  # 因为 OpenHarmony 的 e2fsdroid 无法支持五级系统目录，所以在此作出规避，
-  # 但是很显然这是不应当的。
-  #relative_install_dir = "selinux/targeted/policy/"
-  relative_install_dir = "selinux/targeted/"
+  relative_install_dir = "selinux/targeted/policy/"
 }
 
 ohos_prebuilt_etc("config") {
@@ -46,5 +41,10 @@ ohos_prebuilt_etc("config") {
 ohos_prebuilt_etc("file_contexts") {
   source = "$SELINUX_ROOT_DIR/sepolicy/file_contexts"
   part_name = "selinux"
-  relative_install_dir = "selinux/targeted/contexts/files/"
+
+  # FIXME 此处不应该改变 file_contexts 的约定路径！
+  # 因为 OpenHarmony 的 e2fsdroid 无法支持五级系统目录，所以在此作出规避，
+  # 但是很显然这是不应当的。
+  #relative_install_dir = "selinux/targeted/contexts/files/"
+  relative_install_di = "selinux/targeted/contexts/"
 }

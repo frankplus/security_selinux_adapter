@@ -22,6 +22,6 @@ RDIR=$(readlink -f "${CDIR}/../../../../")
       -o "${sepolicy_dir}/policy.${product}.31"
   done
 
-  mv "${sepolicy_dir}/policy."{${product},}".31"
+  mv "${sepolicy_dir}/policy.${product}.31" "${sepolicy_dir}/policy.31"
 }
 
