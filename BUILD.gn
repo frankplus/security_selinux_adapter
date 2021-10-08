@@ -168,5 +168,5 @@ ohos_prebuilt_etc("file_contexts") {
   # 因为 OpenHarmony 的 e2fsdroid 无法支持五级系统目录，所以在此作出规避，
   # 但是很显然这是不应当的。
   #relative_install_dir = "selinux/targeted/contexts/files/"
-  relative_install_di = "selinux/targeted/contexts/"
+  relative_install_dir = "selinux/targeted/contexts/"
 }
