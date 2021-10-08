@@ -35,10 +35,9 @@ SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄÐ
 | `checkpolicy/` | [selinux/checkpolicy](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/checkpolicy) | `checkpolicy` | ¿ÉÖ´ÐÐÎÄ¼þ |
 | `libselinux/` | [selinux/libselinux](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libselinux) | `libselinux.so`¡¢`getenforce`¡¢`setenforce` | ¶¯Ì¬¿â |
 | `libsepol/` | [selinux/libsepol](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libsepol) | Ìá¹©ÄÚ²¿Ê¹ÓÃµÄ API | ¶¯Ì¬¿â |
-| `policycoreutils/` | ×ÔÑÐ | `libload_policy.so`¡¢`librestorecon.so`¡¢`load_policy`¡¢`restorecon` | ¶¯Ì¬¿â¡¢¿ÉÖ´ÐÐÎÄ¼þ |
 | `seclic/` | [selinux/seclic](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/secilc) | `seclic` | ¿ÉÖ´ÐÐÎÄ¼þ |
-| `depends/fts/` | [openbsd](https://github.com/openbsd/src/tree/e8835b178a3e9df00c1c1fe0b9875fc5ef5a7854) | Ìá¹©ÄÚ²¿Ê¹ÓÃµÄ API | ¾²Ì¬Á´½Ó |
-| `depends/pcre/pcre2/` | [pcre2](https://github.com/PhilipHazel/pcre2/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | `libpcre2.so` | ¶¯Ì¬¿â |
+| `depends/fts/` | [openbsd](https://github.com/openbsd/src/tree/e8835b178a3e9df00c1c1fe0b9875fc5ef5a7854) | Ìá¹© fts | ¾²Ì¬Á´½Ó |
+| `depends/pcre/pcre2/` | [pcre2](https://github.com/PhilipHazel/pcre2/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | Ìá¹© `libpcre2.so` | ¶¯Ì¬¿â |
 
 ## ±àÒë
 
