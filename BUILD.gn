@@ -1,5 +1,111 @@
 SELINUX_ROOT_DIR = "//base/security/selinux"
 
+THIRD_PARTY_SELINUX_DIR = "//third_party/selinux"
+THIRD_PARTY_PCRE2_DIR = "//third_party/pcre2"
+LIBSELINUX_ROOT_DIR = "$THIRD_PARTY_SELINUX_DIR/libselinux"
+LIBSEPOL_ROOT_DIR = "$THIRD_PARTY_SELINUX_DIR/libsepol"
+
+ohos_shared_library("libload_policy") {
+  output_name = "libload_policy"
+  sources = [
+    "$SELINUX_ROOT_DIR/interfaces/policycoreutils/src/load_policy.c",
+    "$SELINUX_ROOT_DIR/interfaces/tools/load_policy/load_policy.c",
+  ]
+  deps = [
+    "$THIRD_PARTY_PCRE2_DIR:libpcre2",
+    "$THIRD_PARTY_SELINUX_DIR:libselinux",
+    "$THIRD_PARTY_SELINUX_DIR:libsepol",
+  ]
+  include_dirs = [
+    "$LIBSELINUX_ROOT_DIR/include/selinux",
+    "$LIBSELINUX_ROOT_DIR/include",
+    "$LIBSELINUX_ROOT_DIR/src",
+    "$LIBSEPOL_ROOT_DIR/cil/src",
+    "$LIBSEPOL_ROOT_DIR/src",
+    "$LIBSEPOL_ROOT_DIR/cil/include",
+    "$LIBSEPOL_ROOT_DIR/include",
+    "$SELINUX_ROOT_DIR/interfaces/policycoreutils/include",
+  ]
+  cflags = [
+    "-D_GNU_SOURCE",
+    "-DUSE_PCRE2",
+    "-w",
+  ]
+  license_file = "$SELINUX_ROOT_DIR/interfaces/policycoreutils/LICENSE.txt"
+  part_name = "selinux"
+  subsystem_name = "security"
+}
+
+ohos_shared_library("librestorecon") {
+  output_name = "librestorecon"
+  sources = [ "$SELINUX_ROOT_DIR/interfaces/policycoreutils/src/restorecon.c" ]
+  deps = [
+    "$THIRD_PARTY_PCRE2_DIR:libpcre2",
+    "$THIRD_PARTY_SELINUX_DIR:libselinux",
+    "$THIRD_PARTY_SELINUX_DIR:libsepol",
+  ]
+  include_dirs = [
+    "$LIBSELINUX_ROOT_DIR/include/selinux",
+    "$LIBSELINUX_ROOT_DIR/include",
+    "$LIBSELINUX_ROOT_DIR/src",
+    "$LIBSEPOL_ROOT_DIR/cil/src",
+    "$LIBSEPOL_ROOT_DIR/src",
+    "$LIBSEPOL_ROOT_DIR/cil/include",
+    "$LIBSEPOL_ROOT_DIR/include",
+    "$THIRD_PARTY_PCRE2_DIR/include_internal",
+    "$THIRD_PARTY_PCRE2_DIR/include",
+    "$SELINUX_ROOT_DIR/interfaces/policycoreutils/include",
+  ]
+  cflags = [
+    "-D_GNU_SOURCE",
+    "-DUSE_PCRE2",
+    "-w",
+  ]
+  license_file = "$SELINUX_ROOT_DIR/interfaces/policycoreutils/LICENSE.txt"
+  part_name = "selinux"
+  subsystem_name = "security"
+}
+
+ohos_executable("load_policy") {
+  install_enable = true
+  sources = [ "$SELINUX_ROOT_DIR/interfaces/tools/load_policy/load_policy.c" ]
+  deps = [
+    ":libload_policy",
+    "$THIRD_PARTY_PCRE2_DIR:libpcre2",
+    "$THIRD_PARTY_SELINUX_DIR:libselinux",
+    "$THIRD_PARTY_SELINUX_DIR:libsepol",
+  ]
+  include_dirs = [ "$SELINUX_ROOT_DIR/interfaces/policycoreutils/include" ]
+  cflags = [
+    "-D_GNU_SOURCE",
+    "-DUSE_PCRE2",
+    "-w",
+  ]
+  license_file = "$SELINUX_ROOT_DIR/interfaces/tools/LICENSE.txt"
+  part_name = "selinux"
+  subsystem_name = "security"
+}
+
+ohos_executable("restorecon") {
+  install_enable = true
+  sources = [ "$SELINUX_ROOT_DIR/interfaces/tools/restorecon/restorecon.c" ]
+  deps = [
+    ":librestorecon",
+    "$THIRD_PARTY_PCRE2_DIR:libpcre2",
+    "$THIRD_PARTY_SELINUX_DIR:libselinux",
+    "$THIRD_PARTY_SELINUX_DIR:libsepol",
+  ]
+  include_dirs = [ "$SELINUX_ROOT_DIR/interfaces/policycoreutils/include" ]
+  cflags = [
+    "-D_GNU_SOURCE",
+    "-DUSE_PCRE2",
+    "-w",
+  ]
+  license_file = "$SELINUX_ROOT_DIR/interfaces/tools/LICENSE.txt"
+  part_name = "selinux"
+  subsystem_name = "security"
+}
+
 ohos_executable("selinux_test") {
   install_enable = true
   sources = [ "$SELINUX_ROOT_DIR/test/selinux_test.c" ]
@@ -9,8 +115,8 @@ ohos_executable("selinux_test") {
     "-w",
   ]
   deps = [
-    "//third_party/pcre2:libpcre2",
-    "//third_party/selinux:libselinux",
+    "$THIRD_PARTY_PCRE2_DIR:libpcre2",
+    "$THIRD_PARTY_SELINUX_DIR:libselinux",
   ]
   part_name = "selinux"
   subsystem_name = "security"
@@ -19,8 +125,8 @@ ohos_executable("selinux_test") {
 action("build_policy") {
   script = "scripts/build_policy.sh"
   deps = [
-    "//third_party/selinux:checkpolicy($host_toolchain)",
-    "//third_party/selinux:secilc($host_toolchain)",
+    "$THIRD_PARTY_SELINUX_DIR:checkpolicy($host_toolchain)",
+    "$THIRD_PARTY_SELINUX_DIR:secilc($host_toolchain)",
   ]
   outputs = [ "$root_out_dir/" ]
 }
