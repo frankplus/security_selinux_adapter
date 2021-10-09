@@ -15,12 +15,12 @@ SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞ
 | --- | --- | --- |
 | [security_selinux](https://gitee.com/shell_way/security_selinux.git) | `base/security/selinux/` | ²ßÂÔºÍÒ»Ğ©×ÔÑĞ½Ó¿Ú |
 | [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) | `third_party/selinux/` | SELinux µÄÖ÷²Ö¿â |
-| [productdefine_common](https://gitee.com/hu-huifeng/productdefine_common.git) | `productdefine/common/` | Ìí¼Ó SELinux ×é¼ş¶¨Òå |
-| [third_party_toybox](https://gitee.com/hu-huifeng/third_party_toybox.git) | `third_party/toybox/` | ÍêÉÆÁË `ls` µÄ SELinux Ö§³Ö |
+| [productdefine_common](https://gitee.com/shell_way/productdefine_common.git) | `productdefine/common/` | Ìí¼Ó SELinux ×é¼ş¶¨Òå |
+| [third_party_toybox](https://gitee.com/shell_way/third_party_toybox.git) | `third_party/toybox/` | ÍêÉÆÁË `ls` µÄ SELinux Ö§³Ö |
 | [startup_init_lite](https://gitee.com/shell_way/startup_init_lite.git) | `base/startup/init_lite/` | ÏµÍ³Æô¶¯¼ÓÔØ²ßÂÔ²¢·Ö»¯·şÎñµÄ±êÇ© |
 | [third_party_FreeBSD](https://gitee.com/shell_way/third_party_FreeBSD.git) | `third_party/FreeBSD/` | Ìá¹© fts ¿â |
 | [third_party_pcre2](https://gitee.com/shell_way/third_party_pcre2.git) | `third_party/pcre2/` | Ìá¹© pcre2 ¿â |
-| [build](https://gitee.com/openharmony/build.git) | `build/` | ±àÒë¿ØÖÆ |
+| [build](https://gitee.com/shell_way/build.git) | `build/` | ±àÒë¿ØÖÆ |
 
 > µ±Ç°Î´ºÏÈëÖ÷Ïß£¬ÆäÖĞÁ´½ÓÁËÒ»Ğ©¸öÈË²Ö¿â¡£
 
@@ -51,8 +51,8 @@ SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞ
 | --- | --- |
 | `base/security/selinux/` | `https://gitee.com/shell_way/security_selinux.git` |
 | `third_party/selinux/` |  `https://gitee.com/openharmony-sig/third_party_selinux.git` |
-| `productdefine/common/` | `https://gitee.com/hu-huifeng/productdefine_common.git` |
-| `third_party/toybox/` | `https://gitee.com/hu-huifeng/third_party_toybox.git` |
+| `productdefine/common/` | `https://gitee.com/shell_way/productdefine_common.git` |
+| `third_party/toybox/` | `https://gitee.com/shell_way/third_party_toybox.git` |
 | `base/startup/init_lite/` | `https://gitee.com/shell_way/startup_init_lite.git` |
 | `third_party/FreeBSD/` | `https://gitee.com/shell_way/third_party_FreeBSD.git` |
 | `third_party_pcre2` | `https://gitee.com/shell_way/third_party_pcre2.git` |
