@@ -17,7 +17,7 @@ import("//build/ohos.gni")
 SELINUX_ROOT_DIR = "//base/security/selinux"
 
 THIRD_PARTY_SELINUX_DIR = "//third_party/selinux"
-THIRD_PARTY_PCRE2_DIR = "//third_party/pcre2"
+THIRD_PARTY_PCRE2_DIR = "//third_party/pcre"
 LIBSELINUX_ROOT_DIR = "$THIRD_PARTY_SELINUX_DIR/libselinux"
 LIBSEPOL_ROOT_DIR = "$THIRD_PARTY_SELINUX_DIR/libsepol"
 

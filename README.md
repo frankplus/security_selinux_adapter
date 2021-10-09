@@ -13,13 +13,13 @@ SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞ
 
 | ²Ö¿â | Ô´ÂëÄ¿Â¼ | ËµÃ÷ |
 | --- | --- | --- |
-| [security_selinux](https://gitee.com/shell_way/security_selinux.git) | `base/security/selinux/` | ²ßÂÔºÍÒ»Ğ©×ÔÑĞ½Ó¿Ú |
+| [security_selinux](https://gitee.com/openharmony-sig/security_selinux.git) | `base/security/selinux/` | ²ßÂÔºÍÒ»Ğ©×ÔÑĞ½Ó¿Ú |
 | [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) | `third_party/selinux/` | SELinux µÄÖ÷²Ö¿â |
 | [productdefine_common](https://gitee.com/shell_way/productdefine_common.git) | `productdefine/common/` | Ìí¼Ó SELinux ×é¼ş¶¨Òå |
 | [third_party_toybox](https://gitee.com/shell_way/third_party_toybox.git) | `third_party/toybox/` | ÍêÉÆÁË `ls` µÄ SELinux Ö§³Ö |
 | [startup_init_lite](https://gitee.com/shell_way/startup_init_lite.git) | `base/startup/init_lite/` | ÏµÍ³Æô¶¯¼ÓÔØ²ßÂÔ²¢·Ö»¯·şÎñµÄ±êÇ© |
 | [third_party_FreeBSD](https://gitee.com/shell_way/third_party_FreeBSD.git) | `third_party/FreeBSD/` | Ìá¹© fts ¿â |
-| [third_party_pcre2](https://gitee.com/shell_way/third_party_pcre2.git) | `third_party/pcre2/` | Ìá¹© pcre2 ¿â |
+| [third_party_pcre]()https://gitee.com/openharmony-sig/third_party_pcre.git | `third_party/pcre/` | Ìá¹© pcre2 ¿â |
 | [build](https://gitee.com/shell_way/build.git) | `build/` | ±àÒë¿ØÖÆ |
 
 > µ±Ç°Î´ºÏÈëÖ÷Ïß£¬ÆäÖĞÁ´½ÓÁËÒ»Ğ©¸öÈË²Ö¿â¡£
@@ -37,7 +37,7 @@ SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞ
 | `libsepol/` | [selinux/libsepol](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libsepol) | Ìá¹©ÄÚ²¿Ê¹ÓÃµÄ API | ¶¯Ì¬¿â |
 | `seclic/` | [selinux/seclic](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/secilc) | `seclic` | ¿ÉÖ´ĞĞÎÄ¼ş |
 | `depends/fts/` | [openbsd](https://github.com/openbsd/src/tree/e8835b178a3e9df00c1c1fe0b9875fc5ef5a7854) | Ìá¹© fts | ¾²Ì¬Á´½Ó |
-| `depends/pcre/pcre2/` | [pcre2](https://github.com/PhilipHazel/pcre2/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | Ìá¹© `libpcre2.so` | ¶¯Ì¬¿â |
+| `depends/pcre/pcre/` | [pcre](https://github.com/PhilipHazel/pcre/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | Ìá¹© `libpcre2.so` | ¶¯Ì¬¿â |
 
 ## ±àÒë
 
@@ -49,13 +49,13 @@ SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞ
 
 | Ä¿Â¼ | ²Ö¿â |
 | --- | --- |
-| `base/security/selinux/` | `https://gitee.com/shell_way/security_selinux.git` |
+| `base/security/selinux/` | `https://gitee.com/openharmony-sig/security_selinux.git` |
 | `third_party/selinux/` |  `https://gitee.com/openharmony-sig/third_party_selinux.git` |
 | `productdefine/common/` | `https://gitee.com/shell_way/productdefine_common.git` |
 | `third_party/toybox/` | `https://gitee.com/shell_way/third_party_toybox.git` |
 | `base/startup/init_lite/` | `https://gitee.com/shell_way/startup_init_lite.git` |
 | `third_party/FreeBSD/` | `https://gitee.com/shell_way/third_party_FreeBSD.git` |
-| `third_party_pcre2` | `https://gitee.com/shell_way/third_party_pcre2.git` |
+| `third_party_pcre` | `https://gitee.com/openharmony-sig/third_party_pcre.git` |
 | `build/` | `https://gitee.com/shell_way/build.git` |
 
 ### ½øĞĞ±àÒë
