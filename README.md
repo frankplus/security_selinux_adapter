@@ -1,39 +1,76 @@
 # security_selinux
 
-#### ä»‹ç»
-{**ä»¥ä¸‹æ˜¯ Gitee å¹³å°è¯´æ˜ï¼Œæ‚¨å¯ä»¥æ›¿æ¢æ­¤ç®€ä»‹**
-Gitee æ˜¯ OSCHINA æ¨å‡ºçš„åŸºäº Git çš„ä»£ç æ‰˜ç®¡å¹³å°ï¼ˆåŒæ—¶æ”¯æŒ SVNï¼‰ã€‚ä¸“ä¸ºå¼€å‘è€…æä¾›ç¨³å®šã€é«˜æ•ˆã€å®‰å…¨çš„äº‘ç«¯è½¯ä»¶å¼€å‘åä½œå¹³å°
-æ— è®ºæ˜¯ä¸ªäººã€å›¢é˜Ÿã€æˆ–æ˜¯ä¼ä¸šï¼Œéƒ½èƒ½å¤Ÿç”¨ Gitee å®ç°ä»£ç æ‰˜ç®¡ã€é¡¹ç›®ç®¡ç†ã€åä½œå¼€å‘ã€‚ä¼ä¸šé¡¹ç›®è¯·çœ‹ [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## Ä¿±ê
 
-#### è½¯ä»¶æ¶æ„
-è½¯ä»¶æ¶æ„è¯´æ˜
+SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞÂ°²È«×ÓÏµÍ³¡£ SELinux SIG µÄ¹¤×÷Ä¿±êÊÇ½« SELinux ÒıÈë OpenHarmony £¬ÖÁÉÙÔÚÔËĞĞ OpenHarmony µÄ L2 Éè±¸ÉÏÊµÏÖ·ÃÎÊ¿ØÖÆ¡£
 
+> 1. SELinux ÊÇÒ»×éÄÚºËĞŞ¸ÄºÍÓÃ»§¿Õ¼ä¹¤¾ß£¬ÆäÌá¹©ÁË·ÃÎÊ¿ØÖÆ°²È«²ßÂÔ»úÖÆ£¬°üÀ¨ÁËÇ¿ÖÆ·ÃÎÊ¿ØÖÆ£¨ Mandatory Access Control £¬ MAC £©¡£
+> 2. SELinux ÒÑ¾­±»Ìí¼Óµ½¸÷ÖÖ Linux ·¢ĞĞ°æÖĞ¡£ÆäÈí¼ş¼Ü¹¹Á¦Í¼½«°²È«¾ö²ßµÄÖ´ĞĞÓë°²È«²ßÂÔ·ÖÀë£¬²¢¼ò»¯Éæ¼°Ö´ĞĞ°²È«²ßÂÔµÄÈí¼şµÄÊıÁ¿¡£
 
-#### å®‰è£…æ•™ç¨‹
+## ²Ö¿â
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+Ä¿Ç°Éæ¼°µ½µÄ²Ö¿âÓĞÒÔÏÂ¼¸¸ö¡£
 
-#### ä½¿ç”¨è¯´æ˜
+| ²Ö¿â | Ô´ÂëÄ¿Â¼ | ËµÃ÷ |
+| --- | --- | --- |
+| [security_selinux](https://gitee.com/openharmony-sig/security_selinux.git) | `base/security/selinux/` | ²ßÂÔºÍÒ»Ğ©×ÔÑĞ½Ó¿Ú |
+| [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) | `third_party/selinux/` | SELinux µÄÖ÷²Ö¿â |
+| [productdefine_common](https://gitee.com/shell_way/productdefine_common.git) | `productdefine/common/` | Ìí¼Ó SELinux ×é¼ş¶¨Òå |
+| [third_party_toybox](https://gitee.com/shell_way/third_party_toybox.git) | `third_party/toybox/` | ÍêÉÆÁË `ls` µÄ SELinux Ö§³Ö |
+| [startup_init_lite](https://gitee.com/shell_way/startup_init_lite.git) | `base/startup/init_lite/` | ÏµÍ³Æô¶¯¼ÓÔØ²ßÂÔ²¢·Ö»¯·şÎñµÄ±êÇ© |
+| [third_party_FreeBSD](https://gitee.com/shell_way/third_party_FreeBSD.git) | `third_party/FreeBSD/` | Ìá¹© fts ¿â |
+| [third_party_pcre]()https://gitee.com/openharmony-sig/third_party_pcre.git | `third_party/pcre/` | Ìá¹© pcre2 ¿â |
+| [build](https://gitee.com/shell_way/build.git) | `build/` | ±àÒë¿ØÖÆ |
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+> µ±Ç°Î´ºÏÈëÖ÷Ïß£¬ÆäÖĞÁ´½ÓÁËÒ»Ğ©¸öÈË²Ö¿â¡£
 
-#### å‚ä¸è´¡çŒ®
+## ¼Ü¹¹
 
-1.  Fork æœ¬ä»“åº“
-2.  æ–°å»º Feat_xxx åˆ†æ”¯
-3.  æäº¤ä»£ç 
-4.  æ–°å»º Pull Request
+![ÕûÌå¼Ü¹¹](docs/images/ÕûÌå¼Ü¹¹.png)
 
+ÔÚ [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) ÖĞÊ¹ÓÃÁËÏÂÃæËÄ¸ö SELinux µÄ×é¼şºÍÁ½¸öÆäËûµÄÒÀÀµ×é¼ş¡£
 
-#### ç‰¹æŠ€
+| ×é¼ş | À´Ô´ | ×÷ÓÃ | ĞÎÊ½ |
+| --- | --- | --- | --- |
+| `checkpolicy/` | [selinux/checkpolicy](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/checkpolicy) | `checkpolicy` | ¿ÉÖ´ĞĞÎÄ¼ş |
+| `libselinux/` | [selinux/libselinux](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libselinux) | `libselinux.so`¡¢`getenforce`¡¢`setenforce` | ¶¯Ì¬¿â |
+| `libsepol/` | [selinux/libsepol](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libsepol) | Ìá¹©ÄÚ²¿Ê¹ÓÃµÄ API | ¶¯Ì¬¿â |
+| `seclic/` | [selinux/seclic](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/secilc) | `seclic` | ¿ÉÖ´ĞĞÎÄ¼ş |
+| `depends/fts/` | [openbsd](https://github.com/openbsd/src/tree/e8835b178a3e9df00c1c1fe0b9875fc5ef5a7854) | Ìá¹© fts | ¾²Ì¬Á´½Ó |
+| `depends/pcre/pcre/` | [pcre](https://github.com/PhilipHazel/pcre/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | Ìá¹© `libpcre2.so` | ¶¯Ì¬¿â |
 
-1.  ä½¿ç”¨ Readme\_XXX.md æ¥æ”¯æŒä¸åŒçš„è¯­è¨€ï¼Œä¾‹å¦‚ Readme\_en.md, Readme\_zh.md
-2.  Gitee å®˜æ–¹åšå®¢ [blog.gitee.com](https://blog.gitee.com)
-3.  ä½ å¯ä»¥ [https://gitee.com/explore](https://gitee.com/explore) è¿™ä¸ªåœ°å€æ¥äº†è§£ Gitee ä¸Šçš„ä¼˜ç§€å¼€æºé¡¹ç›®
-4.  [GVP](https://gitee.com/gvp) å…¨ç§°æ˜¯ Gitee æœ€æœ‰ä»·å€¼å¼€æºé¡¹ç›®ï¼Œæ˜¯ç»¼åˆè¯„å®šå‡ºçš„ä¼˜ç§€å¼€æºé¡¹ç›®
-5.  Gitee å®˜æ–¹æä¾›çš„ä½¿ç”¨æ‰‹å†Œ [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee å°é¢äººç‰©æ˜¯ä¸€æ¡£ç”¨æ¥å±•ç¤º Gitee ä¼šå‘˜é£é‡‡çš„æ ç›® [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## ±àÒë
+
+### Í¬²½ OpenHarmony ´úÂë
+
+°´ÕÕ[¸ÃÎÄµµ](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-package-environment.md)Í¬²½Ö÷Ïß L2 ´úÂë¡£
+
+### Í¬²½ËùĞè²Ö¿â
+
+| Ä¿Â¼ | ²Ö¿â |
+| --- | --- |
+| `base/security/selinux/` | `https://gitee.com/openharmony-sig/security_selinux.git` |
+| `third_party/selinux/` |  `https://gitee.com/openharmony-sig/third_party_selinux.git` |
+| `productdefine/common/` | `https://gitee.com/shell_way/productdefine_common.git` |
+| `third_party/toybox/` | `https://gitee.com/shell_way/third_party_toybox.git` |
+| `base/startup/init_lite/` | `https://gitee.com/shell_way/startup_init_lite.git` |
+| `third_party/FreeBSD/` | `https://gitee.com/shell_way/third_party_FreeBSD.git` |
+| `third_party_pcre` | `https://gitee.com/openharmony-sig/third_party_pcre.git` |
+| `build/` | `https://gitee.com/shell_way/build.git` |
+
+### ½øĞĞ±àÒë
+
+```
+./build/prebuilts_download.sh
+./build.sh --product-name Hi3516DV300 --gn-args "support_selinux=true"
+```
+
+### ÔËĞĞÑéÖ¤
+
+½«¾µÏñÉÕÂ¼µ½ Hi3516DV300 ¿ª·¢°åÉÏ¡£
+
+```
+ls -lZ /         # ²é¿´ÎÄ¼ş±êÇ©ÊÇ·ñ³É¹¦
+ps -eZ           # ²é¿´½ø³Ì±êÇ©ÊÇ·ñ³É¹¦
+setenforce 1     # ½øĞĞ¸÷ÖÖ²Ù×÷£¬¹Û²ìÊÇ·ñ±»À¹½Ø£¬ÒÔ¼°´®¿ÚÊÇ·ñÓĞ avc denied
+```

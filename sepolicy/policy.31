@@ -1,0 +1,4 @@
+! DO NOT DELETE THIS FILE !
+
+This needed by ohos_prebuilt_etc("precompiled_sepolicy") in ..//BUILD.gn
+
