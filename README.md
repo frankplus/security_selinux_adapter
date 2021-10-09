@@ -19,7 +19,7 @@ SELinux ё╗╟╡х╚тЖг©й╫ Linux ё╛ Security-Enhanced Linux ё╘йг Linux юЗй╥иовН╫эЁЖ╣дп
 | [third_party_toybox](https://gitee.com/shell_way/third_party_toybox.git) | `third_party/toybox/` | мЙифак `ls` ╣д SELinux ж╖Ёж |
 | [startup_init_lite](https://gitee.com/shell_way/startup_init_lite.git) | `base/startup/init_lite/` | о╣мЁфТ╤╞╪сть╡ъбт╡╒╥ж╩╞╥ЧнЯ╣д╠Йг╘ |
 | [third_party_FreeBSD](https://gitee.com/shell_way/third_party_FreeBSD.git) | `third_party/FreeBSD/` | лА╧╘ fts ©Б |
-| [third_party_pcre]()https://gitee.com/openharmony-sig/third_party_pcre.git | `third_party/pcre/` | лА╧╘ pcre2 ©Б |
+| [third_party_pcre](https://gitee.com/openharmony-sig/third_party_pcre.git) | `third_party/pcre/` | лА╧╘ pcre2 ©Б |
 | [build](https://gitee.com/shell_way/build.git) | `build/` | ╠ЮрК©ьжф |
 
 > ╣╠г╟н╢╨охКжВоъё╛фДжпа╢╫сакр╩п╘╦Жхк╡ж©Б║ё
