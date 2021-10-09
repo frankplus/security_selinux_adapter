@@ -1,53 +1,74 @@
 # security_selinux
 
-## Ä¿±ê
+## ç›®æ ‡
 
-SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞÂ°²È«×ÓÏµÍ³¡£ SELinux SIG µÄ¹¤×÷Ä¿±êÊÇ½« SELinux ÒıÈë OpenHarmony £¬ÖÁÉÙÔÚÔËĞĞ OpenHarmony µÄ L2 Éè±¸ÉÏÊµÏÖ·ÃÎÊ¿ØÖÆ¡£
+SELinux ï¼ˆå®‰å…¨å¢å¼ºå¼ Linux ï¼Œ Security-Enhanced Linux ï¼‰æ˜¯ Linux å†å²ä¸Šæœ€æ°å‡ºçš„æ–°å®‰å…¨å­ç³»ç»Ÿã€‚ SELinux SIG çš„å·¥ä½œç›®æ ‡æ˜¯å°† SELinux å¼•å…¥ OpenHarmony ï¼Œè‡³å°‘åœ¨è¿è¡Œ OpenHarmony çš„ L2 è®¾å¤‡ä¸Šå®ç°è®¿é—®æ§åˆ¶ã€‚
 
-> 1. SELinux ÊÇÒ»×éÄÚºËĞŞ¸ÄºÍÓÃ»§¿Õ¼ä¹¤¾ß£¬ÆäÌá¹©ÁË·ÃÎÊ¿ØÖÆ°²È«²ßÂÔ»úÖÆ£¬°üÀ¨ÁËÇ¿ÖÆ·ÃÎÊ¿ØÖÆ£¨ Mandatory Access Control £¬ MAC £©¡£
-> 2. SELinux ÒÑ¾­±»Ìí¼Óµ½¸÷ÖÖ Linux ·¢ĞĞ°æÖĞ¡£ÆäÈí¼ş¼Ü¹¹Á¦Í¼½«°²È«¾ö²ßµÄÖ´ĞĞÓë°²È«²ßÂÔ·ÖÀë£¬²¢¼ò»¯Éæ¼°Ö´ĞĞ°²È«²ßÂÔµÄÈí¼şµÄÊıÁ¿¡£
+> 1. SELinux æ˜¯ä¸€ç»„å†…æ ¸ä¿®æ”¹å’Œç”¨æˆ·ç©ºé—´å·¥å…·ï¼Œå…¶æä¾›äº†è®¿é—®æ§åˆ¶å®‰å…¨ç­–ç•¥æœºåˆ¶ï¼ŒåŒ…æ‹¬äº†å¼ºåˆ¶è®¿é—®æ§åˆ¶ï¼ˆ Mandatory Access Control ï¼Œ MAC ï¼‰ã€‚
+> 2. SELinux å·²ç»è¢«æ·»åŠ åˆ°å„ç§ Linux å‘è¡Œç‰ˆä¸­ã€‚å…¶è½¯ä»¶æ¶æ„åŠ›å›¾å°†å®‰å…¨å†³ç­–çš„æ‰§è¡Œä¸å®‰å…¨ç­–ç•¥åˆ†ç¦»ï¼Œå¹¶ç®€åŒ–æ¶‰åŠæ‰§è¡Œå®‰å…¨ç­–ç•¥çš„è½¯ä»¶çš„æ•°é‡ã€‚
 
-## ²Ö¿â
+## ä»“åº“
 
-Ä¿Ç°Éæ¼°µ½µÄ²Ö¿âÓĞÒÔÏÂ¼¸¸ö¡£
+ç›®å‰ï¼ˆ2021å¹´10æœˆ9æ—¥15:43:21ï¼‰æ¶‰åŠåˆ°çš„ä»“åº“æœ‰ä»¥ä¸‹å‡ ä¸ªã€‚
 
-| ²Ö¿â | Ô´ÂëÄ¿Â¼ | ËµÃ÷ |
+| ä»“åº“ | æºç ç›®å½• | è¯´æ˜ |
 | --- | --- | --- |
-| [security_selinux](https://gitee.com/openharmony-sig/security_selinux.git) | `base/security/selinux/` | ²ßÂÔºÍÒ»Ğ©×ÔÑĞ½Ó¿Ú |
-| [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) | `third_party/selinux/` | SELinux µÄÖ÷²Ö¿â |
-| [productdefine_common](https://gitee.com/shell_way/productdefine_common.git) | `productdefine/common/` | Ìí¼Ó SELinux ×é¼ş¶¨Òå |
-| [third_party_toybox](https://gitee.com/shell_way/third_party_toybox.git) | `third_party/toybox/` | ÍêÉÆÁË `ls` µÄ SELinux Ö§³Ö |
-| [startup_init_lite](https://gitee.com/shell_way/startup_init_lite.git) | `base/startup/init_lite/` | ÏµÍ³Æô¶¯¼ÓÔØ²ßÂÔ²¢·Ö»¯·şÎñµÄ±êÇ© |
-| [third_party_FreeBSD](https://gitee.com/shell_way/third_party_FreeBSD.git) | `third_party/FreeBSD/` | Ìá¹© fts ¿â |
-| [third_party_pcre](https://gitee.com/openharmony-sig/third_party_pcre.git) | `third_party/pcre/` | Ìá¹© pcre2 ¿â |
-| [build](https://gitee.com/shell_way/build.git) | `build/` | ±àÒë¿ØÖÆ |
+| [security_selinux](https://gitee.com/openharmony-sig/security_selinux.git) | `base/security/selinux/` | ç­–ç•¥å’Œä¸€äº›è‡ªç ”æ¥å£ |
+| [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) | `third_party/selinux/` | SELinux çš„ä¸»ä»“åº“ |
+| [productdefine_common](https://gitee.com/shell_way/productdefine_common.git) | `productdefine/common/` | æ·»åŠ  SELinux ç»„ä»¶å®šä¹‰ |
+| [third_party_toybox](https://gitee.com/shell_way/third_party_toybox.git) | `third_party/toybox/` | å®Œå–„äº† `ls` çš„ SELinux æ”¯æŒ |
+| [startup_init_lite](https://gitee.com/shell_way/startup_init_lite.git) | `base/startup/init_lite/` | ç³»ç»Ÿå¯åŠ¨åŠ è½½ç­–ç•¥å¹¶åˆ†åŒ–æœåŠ¡çš„æ ‡ç­¾ |
+| [third_party_FreeBSD](https://gitee.com/shell_way/third_party_FreeBSD.git) | `third_party/FreeBSD/` | æä¾› fts åº“ |
+| [third_party_pcre](https://gitee.com/openharmony-sig/third_party_pcre.git) | `third_party/pcre/` | æä¾› pcre2 åº“ |
+| [build](https://gitee.com/shell_way/build.git) | `build/` | ç¼–è¯‘æ§åˆ¶ |
 
-> µ±Ç°Î´ºÏÈëÖ÷Ïß£¬ÆäÖĞÁ´½ÓÁËÒ»Ğ©¸öÈË²Ö¿â¡£
+## æ¶æ„
 
-## ¼Ü¹¹
+### æ•´ä½“æ¶æ„
 
-![ÕûÌå¼Ü¹¹](docs/images/ÕûÌå¼Ü¹¹.png)
+![æ•´ä½“æ¶æ„](docs/images/æ•´ä½“æ¶æ„.png)
 
-ÔÚ [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) ÖĞÊ¹ÓÃÁËÏÂÃæËÄ¸ö SELinux µÄ×é¼şºÍÁ½¸öÆäËûµÄÒÀÀµ×é¼ş¡£
+åœ¨ [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) ä¸­ä½¿ç”¨äº†ä¸‹é¢å››ä¸ª SELinux çš„ç»„ä»¶å’Œä¸¤ä¸ªå…¶ä»–çš„ä¾èµ–ç»„ä»¶ã€‚
 
-| ×é¼ş | À´Ô´ | ×÷ÓÃ | ĞÎÊ½ |
+| ç»„ä»¶ | æ¥æº | ä½œç”¨ | å½¢å¼ |
 | --- | --- | --- | --- |
-| `checkpolicy/` | [selinux/checkpolicy](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/checkpolicy) | `checkpolicy` | ¿ÉÖ´ĞĞÎÄ¼ş |
-| `libselinux/` | [selinux/libselinux](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libselinux) | `libselinux.so`¡¢`getenforce`¡¢`setenforce` | ¶¯Ì¬¿â |
-| `libsepol/` | [selinux/libsepol](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libsepol) | Ìá¹©ÄÚ²¿Ê¹ÓÃµÄ API | ¶¯Ì¬¿â |
-| `seclic/` | [selinux/seclic](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/secilc) | `seclic` | ¿ÉÖ´ĞĞÎÄ¼ş |
-| `depends/fts/` | [openbsd](https://github.com/openbsd/src/tree/e8835b178a3e9df00c1c1fe0b9875fc5ef5a7854) | Ìá¹© fts | ¾²Ì¬Á´½Ó |
-| `depends/pcre/pcre/` | [pcre](https://github.com/PhilipHazel/pcre/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | Ìá¹© `libpcre2.so` | ¶¯Ì¬¿â |
+| `checkpolicy/` | [selinux/checkpolicy](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/checkpolicy) | `checkpolicy` | å¯æ‰§è¡Œæ–‡ä»¶ |
+| `libselinux/` | [selinux/libselinux](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libselinux) | `libselinux.so`ã€`getenforce`ã€`setenforce` | åŠ¨æ€åº“ |
+| `libsepol/` | [selinux/libsepol](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libsepol) | æä¾›å†…éƒ¨ä½¿ç”¨çš„ API | åŠ¨æ€åº“ |
+| `seclic/` | [selinux/seclic](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/secilc) | `seclic` | å¯æ‰§è¡Œæ–‡ä»¶ |
+| `depends/fts/` | [openbsd](https://github.com/openbsd/src/tree/e8835b178a3e9df00c1c1fe0b9875fc5ef5a7854) | æä¾› fts | é™æ€é“¾æ¥ |
+| `depends/pcre/pcre/` | [pcre](https://github.com/PhilipHazel/pcre/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | æä¾› `libpcre2.so` | åŠ¨æ€åº“ |
 
-## ±àÒë
+> æœ¬ä»“åº“ä¸»è¦ä½äºå›¾ä¸­çš„ç¼–è¯‘ä¾§ï¼Œåœ¨æ¿ä¾§æœ‰ä¸¤ä¸ªåŠ¨æ€åº“ä¾› init è°ƒç”¨ä¸‰æ–¹åº“ã€‚
 
-### Í¬²½ OpenHarmony ´úÂë
+### ç›®å½•ç»“æ„
 
-°´ÕÕ[¸ÃÎÄµµ](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-package-environment.md)Í¬²½Ö÷Ïß L2 ´úÂë¡£
+```
+.
+â”œâ”€â”€ config                  # æ¿ä¾§    ä¸‰æ–¹åº“é…ç½®æ–‡ä»¶
+â”œâ”€â”€ docs                    #         æ–‡æ¡£èµ„æº
+â”‚Â Â  â””â”€â”€ images
+â”œâ”€â”€ interfaces
+â”‚Â Â  â”œâ”€â”€ policycoreutils     # æ¿ä¾§    libload_policy.soã€librestorecon.so
+â”‚Â Â  â”‚Â Â  â”œâ”€â”€ include
+â”‚Â Â  â”‚Â Â  â””â”€â”€ src
+â”‚Â Â  â””â”€â”€ tools               # æ¿ä¾§    load_policyã€restorecon
+â”‚Â Â      â”œâ”€â”€ load_policy
+â”‚Â Â      â””â”€â”€ restorecon
+â”œâ”€â”€ scripts                 # ç¼–è¯‘ä¾§  ç­–ç•¥ç¼–è¯‘è„šæœ¬
+â”œâ”€â”€ sepolicy                # ç¼–è¯‘ä¾§  ç­–ç•¥æ–‡ä»¶
+â””â”€â”€ test                    #         æµ‹è¯•ç¨‹åº
+```
 
-### Í¬²½ËùĞè²Ö¿â
+## éªŒè¯
 
-| Ä¿Â¼ | ²Ö¿â |
+### åŒæ­¥ OpenHarmony ä»£ç 
+
+æŒ‰ç…§[è¯¥æ–‡æ¡£](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-package-environment.md)åŒæ­¥ä¸»çº¿ L2 ä»£ç ã€‚
+
+### åŒæ­¥æ‰€éœ€ä»“åº“
+
+| ç›®å½• | ä»“åº“ |
 | --- | --- |
 | `base/security/selinux/` | `https://gitee.com/openharmony-sig/security_selinux.git` |
 | `third_party/selinux/` |  `https://gitee.com/openharmony-sig/third_party_selinux.git` |
@@ -58,19 +79,19 @@ SELinux £¨°²È«ÔöÇ¿Ê½ Linux £¬ Security-Enhanced Linux £©ÊÇ Linux ÀúÊ·ÉÏ×î½Ü³öµÄĞ
 | `third_party_pcre` | `https://gitee.com/openharmony-sig/third_party_pcre.git` |
 | `build/` | `https://gitee.com/shell_way/build.git` |
 
-### ½øĞĞ±àÒë
+### è¿›è¡Œç¼–è¯‘
 
 ```
 ./build/prebuilts_download.sh
-./build.sh --product-name Hi3516DV300 --gn-args "support_selinux=true"
+./build.sh --product-name Hi3516DV300 --gn-args "build_selinux=true"
 ```
 
-### ÔËĞĞÑéÖ¤
+### è¿è¡ŒéªŒè¯
 
-½«¾µÏñÉÕÂ¼µ½ Hi3516DV300 ¿ª·¢°åÉÏ¡£
+å°†é•œåƒçƒ§å½•åˆ° Hi3516DV300 å¼€å‘æ¿ä¸Šã€‚
 
 ```
-ls -lZ /         # ²é¿´ÎÄ¼ş±êÇ©ÊÇ·ñ³É¹¦
-ps -eZ           # ²é¿´½ø³Ì±êÇ©ÊÇ·ñ³É¹¦
-setenforce 1     # ½øĞĞ¸÷ÖÖ²Ù×÷£¬¹Û²ìÊÇ·ñ±»À¹½Ø£¬ÒÔ¼°´®¿ÚÊÇ·ñÓĞ avc denied
+ls -lZ /         # æŸ¥çœ‹æ–‡ä»¶æ ‡ç­¾æ˜¯å¦æˆåŠŸ
+ps -eZ           # æŸ¥çœ‹è¿›ç¨‹æ ‡ç­¾æ˜¯å¦æˆåŠŸ
+setenforce 1     # è¿›è¡Œå„ç§æ“ä½œï¼Œè§‚å¯Ÿæ˜¯å¦è¢«æ‹¦æˆªï¼Œä»¥åŠä¸²å£æ˜¯å¦æœ‰ avc denied
 ```
