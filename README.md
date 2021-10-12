@@ -2,7 +2,7 @@
 
 ## 目标
 
-SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史上最杰出的新安全子系统。 SELinux SIG 的工作目标是将 SELinux 引入 OpenHarmony ，至少在运行 OpenHarmony 的 L2 设备上实现访问控制。
+SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史上杰出的安全子系统。 SELinux SIG 的工作目标是将 SELinux 引入 OpenHarmony 。
 
 > 1. SELinux 是一组内核修改和用户空间工具，其提供了访问控制安全策略机制，包括了强制访问控制（ Mandatory Access Control ， MAC ）。
 > 2. SELinux 已经被添加到各种 Linux 发行版中。其软件架构力图将安全决策的执行与安全策略分离，并简化涉及执行安全策略的软件的数量。
@@ -64,9 +64,32 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 
 ### 同步 OpenHarmony 代码
 
-按照[该文档](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-package-environment.md)同步主线 L2 代码。
+首先配置好环境。
 
-### 同步所需仓库
+```
+sudo apt update
+sudo apt install binutils git git-lfs gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip m4 bc gnutls-bin python3.8 python3-pip ruby
+git config --global user.name "yourname"
+git config --global user.email "your-email-address"
+git config --global credential.helper store
+sudo sh -c 'curl -s https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 > /usr/local/bin/repo'
+sudo chmod a+x /usr/local/bin/repo
+sudo pip3 install -i https://repo.huaweicloud.com/repository/pypi/simple requests
+```
+
+然后开始同步代码。
+
+```
+mkdir -pv openharmony/
+cd ./openharmony/
+repo init -u https://gitee.com/openharmony/manifest.git -b master --no-repo-verify
+repo sync -c
+repo forall -c 'git lfs pull'
+```
+
+### 同步相关仓库
+
+代码同步完毕后，依次同步以下仓库。
 
 | 目录 | 仓库 |
 | --- | --- |
@@ -76,10 +99,48 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 | `third_party/toybox/` | `https://gitee.com/shell_way/third_party_toybox.git` |
 | `base/startup/init_lite/` | `https://gitee.com/shell_way/startup_init_lite.git` |
 | `third_party/FreeBSD/` | `https://gitee.com/shell_way/third_party_FreeBSD.git` |
-| `third_party_pcre` | `https://gitee.com/openharmony-sig/third_party_pcre.git` |
+| `third_party/pcre` | `https://gitee.com/openharmony-sig/third_party_pcre.git` |
 | `build/` | `https://gitee.com/shell_way/build.git` |
 
+如果你不知道怎么做，可以进入到同步好的 OpenHarmony 代码目录，执行以下命令。
+
+```
+pushd ./base/security/
+git clone https://gitee.com/openharmony-sig/security_selinux.git ./selinux/
+popd
+
+pushd ./third_party/
+git clone https://gitee.com/openharmony-sig/third_party_selinux.git ./selinux/
+popd
+
+pushd ./productdefine/common/
+git pull https://gitee.com/shell_way/productdefine_common.git
+popd
+
+pushd ./third_party/toybox/
+git pull https://gitee.com/shell_way/third_party_toybox.git
+popd
+
+pushd ./base/startup/init_lite/
+git pull https://gitee.com/shell_way/startup_init_lite.git
+popd
+
+pushd ./third_party/FreeBSD/
+git pull https://gitee.com/shell_way/third_party_FreeBSD.git
+popd
+
+pushd ./third_party/pcre/
+git clone https://gitee.com/openharmony-sig/third_party_pcre.git ./pcre/
+popd
+
+pushd ./build/
+git pull https://gitee.com/shell_way/build.git
+popd
+```
+
 ### 进行编译
+
+同步完成后，执行下面的命令编译项目，注意需要使用参数 `--gn-args "build_selinux=true"` 启用 SELinux 。
 
 ```
 ./build/prebuilts_download.sh
@@ -88,7 +149,7 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 
 ### 运行验证
 
-将镜像烧录到 Hi3516DV300 开发板上。
+将镜像烧录到 Hi3516DV300 开发板上，开机，通过串口拿到 Shell ，在其中执行。
 
 ```
 ls -lZ /         # 查看文件标签是否成功
