@@ -47,7 +47,7 @@ ohos_shared_library("libload_policy") {
     "-DUSE_PCRE2",
     "-w",
   ]
-  license_file = "$SELINUX_ROOT_DIR/interfaces/policycoreutils/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -77,7 +77,7 @@ ohos_shared_library("librestorecon") {
     "-DUSE_PCRE2",
     "-w",
   ]
-  license_file = "$SELINUX_ROOT_DIR/interfaces/policycoreutils/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -97,7 +97,7 @@ ohos_executable("load_policy") {
     "-DUSE_PCRE2",
     "-w",
   ]
-  license_file = "$SELINUX_ROOT_DIR/interfaces/tools/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -117,7 +117,7 @@ ohos_executable("restorecon") {
     "-DUSE_PCRE2",
     "-w",
   ]
-  license_file = "$SELINUX_ROOT_DIR/interfaces/tools/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -134,6 +134,7 @@ ohos_executable("selinux_test") {
     "$THIRD_PARTY_PCRE2_DIR:libpcre2",
     "$THIRD_PARTY_SELINUX_DIR:libselinux",
   ]
+  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -163,7 +164,6 @@ ohos_prebuilt_etc("config") {
 ohos_prebuilt_etc("file_contexts") {
   source = "$SELINUX_ROOT_DIR/sepolicy/file_contexts"
   part_name = "selinux"
-
   # FIXME 此处不应该改变 file_contexts 的约定路径！
   # 因为 OpenHarmony 的 e2fsdroid 无法支持五级系统目录，所以在此作出规避，
   # 但是很显然这是不应当的。
