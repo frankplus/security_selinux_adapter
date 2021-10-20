@@ -72,8 +72,8 @@ sudo apt install binutils git git-lfs gnupg flex bison gperf build-essential zip
 git config --global user.name "yourname"
 git config --global user.email "your-email-address"
 git config --global credential.helper store
-sudo sh -c 'curl -s https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 > /usr/local/bin/repo'
-sudo chmod a+x /usr/local/bin/repo
+sudo sh -c 'curl -s https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 > /usr/bin/repo'
+sudo chmod a+x /usr/bin/repo
 sudo pip3 install -i https://repo.huaweicloud.com/repository/pypi/simple requests
 ```
 
@@ -96,13 +96,10 @@ repo forall -c 'git lfs pull'
 | `base/security/selinux/` | `https://gitee.com/openharmony-sig/security_selinux.git` |
 | `third_party/selinux/` |  `https://gitee.com/openharmony-sig/third_party_selinux.git` |
 | `productdefine/common/` | `https://gitee.com/shell_way/productdefine_common.git` |
-| `third_party/toybox/` | `https://gitee.com/shell_way/third_party_toybox.git` |
 | `base/startup/init_lite/` | `https://gitee.com/shell_way/startup_init_lite.git` |
-| `third_party/FreeBSD/` | `https://gitee.com/shell_way/third_party_FreeBSD.git` |
 | `third_party/pcre` | `https://gitee.com/openharmony-sig/third_party_pcre.git` |
-| `build/` | `https://gitee.com/shell_way/build.git` |
 
-如果你不知道怎么做，可以进入到同步好的 OpenHarmony 代码目录，执行以下命令。
+可以进入到同步好的 OpenHarmony 代码目录，执行以下命令。
 
 ```
 pushd ./base/security/
@@ -117,24 +114,12 @@ pushd ./productdefine/common/
 git pull https://gitee.com/shell_way/productdefine_common.git
 popd
 
-pushd ./third_party/toybox/
-git pull https://gitee.com/shell_way/third_party_toybox.git
-popd
-
 pushd ./base/startup/init_lite/
 git pull https://gitee.com/shell_way/startup_init_lite.git
 popd
 
-pushd ./third_party/FreeBSD/
-git pull https://gitee.com/shell_way/third_party_FreeBSD.git
-popd
-
-pushd ./third_party/pcre/
-git clone https://gitee.com/openharmony-sig/third_party_pcre.git ./pcre/
-popd
-
-pushd ./build/
-git pull https://gitee.com/shell_way/build.git
+pushd ./third_party/
+git clone https://gitee.com/openharmony-sig/third_party_pcre2.git ./pcre2/
 popd
 ```
 
