@@ -68,7 +68,7 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 
 ```
 sudo apt update
-sudo apt install binutils git git-lfs gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip m4 bc gnutls-bin python3.8 python3-pip ruby
+sudo apt-get update && sudo apt-get install binutils git git-lfs gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip m4 bc gnutls-bin python3.8 python3-pip ruby
 git config --global user.name "yourname"
 git config --global user.email "your-email-address"
 git config --global credential.helper store
@@ -85,42 +85,6 @@ cd ./openharmony/
 repo init -u https://gitee.com/openharmony/manifest.git -b master --no-repo-verify
 repo sync -c
 repo forall -c 'git lfs pull'
-```
-
-### 同步相关仓库
-
-代码同步完毕后，依次同步以下仓库。
-
-| 目录 | 仓库 |
-| --- | --- |
-| `base/security/selinux/` | `https://gitee.com/openharmony-sig/security_selinux.git` |
-| `third_party/selinux/` |  `https://gitee.com/openharmony-sig/third_party_selinux.git` |
-| `productdefine/common/` | `https://gitee.com/shell_way/productdefine_common.git` |
-| `base/startup/init_lite/` | `https://gitee.com/shell_way/startup_init_lite.git` |
-| `third_party/pcre` | `https://gitee.com/openharmony-sig/third_party_pcre.git` |
-
-可以进入到同步好的 OpenHarmony 代码目录，执行以下命令。
-
-```
-pushd ./base/security/
-git clone https://gitee.com/openharmony-sig/security_selinux.git ./selinux/
-popd
-
-pushd ./third_party/
-git clone https://gitee.com/openharmony-sig/third_party_selinux.git ./selinux/
-popd
-
-pushd ./productdefine/common/
-git pull https://gitee.com/shell_way/productdefine_common.git
-popd
-
-pushd ./base/startup/init_lite/
-git pull https://gitee.com/shell_way/startup_init_lite.git
-popd
-
-pushd ./third_party/
-git clone https://gitee.com/openharmony-sig/third_party_pcre2.git ./pcre2/
-popd
 ```
 
 ### 进行编译
