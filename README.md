@@ -67,7 +67,6 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 首先配置好环境。
 
 ```
-sudo apt update
 sudo apt-get update && sudo apt-get install binutils git git-lfs gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip m4 bc gnutls-bin python3.8 python3-pip ruby
 git config --global user.name "yourname"
 git config --global user.email "your-email-address"
