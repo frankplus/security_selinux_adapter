@@ -1,4 +1,4 @@
-/* Copyright 2021 北京万里红科技有限公司
+/* Copyright (c) 2021 北京万里红科技有限公司
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,45 +24,49 @@
 #include <string.h>
 
 typedef struct restore_opts {
-  unsigned int restorecon_flags;
-  struct selabel_handle *hnd;
+    unsigned int restorecon_flags;
+    struct selabel_handle *hnd;
 } restore_opts_t;
 
-static int restore_init(restore_opts_t *opts) {
-  struct selinux_opt selinux_opts[] = {
-      {SELABEL_OPT_VALIDATE, NULL},
-      {SELABEL_OPT_PATH, NULL},
-      {SELABEL_OPT_DIGEST, NULL},
-  };
+static int restore_init(restore_opts_t * opts)
+{
+    struct selinux_opt selinux_opts[] = {
+        {SELABEL_OPT_VALIDATE, NULL},
+        {SELABEL_OPT_PATH, NULL},
+        {SELABEL_OPT_DIGEST, NULL},
+    };
 
-  if (!(opts->hnd = selabel_open(SELABEL_CTX_FILE, selinux_opts, 3))) {
-    return -1;
-  }
+    if (!(opts->hnd = selabel_open(SELABEL_CTX_FILE, selinux_opts,
+                                   sizeof(selinux_opts) /
+                                   sizeof(selinux_opt)))) {
+        return -1;
+    }
 
-  opts->restorecon_flags = 0;
-  opts->restorecon_flags =
-      SELINUX_RESTORECON_REALPATH | SELINUX_RESTORECON_RECURSE;
+    opts->restorecon_flags = 0;
+    opts->restorecon_flags =
+        SELINUX_RESTORECON_REALPATH | SELINUX_RESTORECON_RECURSE;
 
-  selinux_restorecon_set_sehandle(opts->hnd);
+    selinux_restorecon_set_sehandle(opts->hnd);
 }
 
-int restorecon(void) {
-  restore_opts_t opts;
-  int i = 0;
-  int errors = 0;
+int restorecon(void)
+{
+    restore_opts_t opts;
+    int i = 0;
+    int errors = 0;
 
-  memset(&opts, 0, sizeof(opts));
+    memset_s(&opts, sizeof(opts), 0, sizeof(opts));
 
-  if (is_selinux_enabled() < 1) {
-    return 1;
-  }
+    if (is_selinux_enabled() < 1) {
+        return 1;
+    }
 
-  if (!restore_init(&opts)) {
-    return -1;
-  }
+    if (!restore_init(&opts)) {
+        return -1;
+    }
 
-  errors = selinux_restorecon("/", opts.restorecon_flags);
-  selabel_close(opts.hnd);
+    errors = selinux_restorecon("/", opts.restorecon_flags);
+    selabel_close(opts.hnd);
 
-  return (errors ? -1 : 1);
+    return (errors ? -1 : 1);
 }

@@ -1,4 +1,4 @@
-/* Copyright 2021 北京万里红科技有限公司
+/* Copyright (c) 2021 北京万里红科技有限公司
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,22 +18,23 @@
 #include <sepol/sepol.h>
 #include <stdio.h>
 
-int load_policy(void) {
-  int ret, enforce = 0;
+int load_policy(void)
+{
+    int ret, enforce = 0;
 
-  if ((ret = selinux_init_load_policy(&enforce))) {
-    if (enforce > 0) {
-      fprintf(stderr,
-              "Can't load policy and enforcing mode requested:  %s\n",
-              strerror(errno));
-      return -1;
+    if ((ret = selinux_init_load_policy(&enforce))) {
+        if (enforce > 0) {
+            fprintf(stderr,
+                    "Can't load policy and enforcing mode requested:  %s\n",
+                    strerror(errno));
+            return -1;
+        }
     }
-  }
 
-  if ((ret = selinux_mkload_policy(0)) < 0) {
-    fprintf(stderr, "Can't load policy:  %s\n", strerror(errno));
-    return -1;
-  }
+    if ((ret = selinux_mkload_policy(0)) < 0) {
+        fprintf(stderr, "Can't load policy:  %s\n", strerror(errno));
+        return -1;
+    }
 
-  return 1;
+    return 1;
 }

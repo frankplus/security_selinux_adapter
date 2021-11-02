@@ -13,14 +13,14 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 
 | 仓库 | 源码目录 | 说明 |
 | --- | --- | --- |
-| [security_selinux](https://gitee.com/openharmony-sig/security_selinux.git) | `base/security/selinux/` | 策略和一些自研接口 |
-| [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) | `third_party/selinux/` | SELinux 的主仓库 |
-| [productdefine_common](https://gitee.com/shell_way/productdefine_common.git) | `productdefine/common/` | 添加 SELinux 组件定义 |
-| [third_party_toybox](https://gitee.com/shell_way/third_party_toybox.git) | `third_party/toybox/` | 完善了 `ls` 的 SELinux 支持 |
-| [startup_init_lite](https://gitee.com/shell_way/startup_init_lite.git) | `base/startup/init_lite/` | 系统启动加载策略并分化服务的标签 |
-| [third_party_FreeBSD](https://gitee.com/shell_way/third_party_FreeBSD.git) | `third_party/FreeBSD/` | 提供 fts 库 |
+| [security_selinux](https://gitee.com/openharmony/security_selinux.git) | `base/security/selinux/` | 策略和一些自研接口 |
+| [third_party_selinux](https://gitee.com/openharmony/third_party_selinux.git) | `third_party/selinux/` | SELinux 的主仓库 |
+| [productdefine_common](https://gitee.com/openharmony/productdefine_common.git) | `productdefine/common/` | 添加 SELinux 组件定义 |
+| [third_party_toybox](https://gitee.com/openharmony/third_party_toybox.git) | `third_party/toybox/` | 完善了 `ls` 的 SELinux 支持 |
+| [startup_init_lite](https://gitee.com/openharmony/startup_init_lite.git) | `base/startup/init_lite/` | 系统启动加载策略并分化服务的标签 |
+| [third_party_FreeBSD](https://gitee.com/openharmony/third_party_FreeBSD.git) | `third_party/FreeBSD/` | 提供 fts 库 |
 | [third_party_pcre](https://gitee.com/openharmony-sig/third_party_pcre.git) | `third_party/pcre/` | 提供 pcre2 库 |
-| [build](https://gitee.com/shell_way/build.git) | `build/` | 编译控制 |
+| [build](https://gitee.com/openharmony/build.git) | `build/` | 编译控制 |
 
 ## 架构
 
