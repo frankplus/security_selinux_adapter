@@ -140,7 +140,7 @@ ohos_executable("selinux_test") {
     "-DUSE_PCRE2",
     "-w",
   ]
-  include_dirs = [ "$LIBSELINUX_ROOT_DIR/include/selinux" ]
+  include_dirs = [ "$LIBSELINUX_ROOT_DIR/include" ]
   deps = [
     "$THIRD_PARTY_PCRE2_DIR:libpcre2",
     "$THIRD_PARTY_SELINUX_DIR:libselinux",
