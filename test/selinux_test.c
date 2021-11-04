@@ -19,6 +19,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <selinux/selinux.h>
+#include <securec.h>
 
 #define BUFFLEN (1000)
 
