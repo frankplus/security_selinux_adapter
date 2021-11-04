@@ -22,6 +22,7 @@
 #include <sepol/sepol.h>
 #include <stdio.h>
 #include <string.h>
+#include <securec.h>
 
 typedef struct restore_opts {
     unsigned int restorecon_flags;
