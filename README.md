@@ -9,7 +9,7 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 
 ## 仓库
 
-目前（2021年10月9日15:43:21）涉及到的仓库有以下几个。
+涉及到的仓库有以下几个。
 
 | 仓库 | 源码目录 | 说明 |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 
 ![整体架构](docs/images/整体架构.png)
 
-在 [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) 中使用了下面四个 SELinux 的组件和两个其他的依赖组件。
+在 [third_party_selinux](https://gitee.com/openharmony-sig/third_party_selinux.git) 中使用了下面四个 SELinux 的组件。
 
 | 组件 | 来源 | 作用 | 形式 |
 | --- | --- | --- | --- |
@@ -36,8 +36,6 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 | `libselinux/` | [selinux/libselinux](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libselinux) | `libselinux.so`、`getenforce`、`setenforce` | 动态库 |
 | `libsepol/` | [selinux/libsepol](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/libsepol) | 提供内部使用的 API | 动态库 |
 | `seclic/` | [selinux/seclic](https://github.com/SELinuxProject/selinux/tree/cf853c1a0c2328ad6c62fb2b2cc55d4926301d6b/secilc) | `seclic` | 可执行文件 |
-| `depends/fts/` | [openbsd](https://github.com/openbsd/src/tree/e8835b178a3e9df00c1c1fe0b9875fc5ef5a7854) | 提供 fts | 静态链接 |
-| `depends/pcre/pcre/` | [pcre](https://github.com/PhilipHazel/pcre/tree/2ae7c30b95d63ecbaff6727eaff7c3a6a3969d56) | 提供 `libpcre2.so` | 动态库 |
 
 > 本仓库主要位于图中的编译侧，在板侧有两个动态库供 init 调用三方库。
 
@@ -62,36 +60,13 @@ SELinux （安全增强式 Linux ， Security-Enhanced Linux ）是 Linux 历史
 
 ## 验证
 
-### 同步 OpenHarmony 代码
+### 编译代码
 
-首先配置好环境。
-
-```
-sudo apt-get update && sudo apt-get install binutils git git-lfs gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip m4 bc gnutls-bin python3.8 python3-pip ruby
-git config --global user.name "yourname"
-git config --global user.email "your-email-address"
-git config --global credential.helper store
-sudo sh -c 'curl -s https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 > /usr/bin/repo'
-sudo chmod a+x /usr/bin/repo
-sudo pip3 install -i https://repo.huaweicloud.com/repository/pypi/simple requests
-```
-
-然后开始同步代码。
-
-```
-mkdir -pv openharmony/
-cd ./openharmony/
-repo init -u https://gitee.com/openharmony/manifest.git -b master --no-repo-verify
-repo sync -c
-repo forall -c 'git lfs pull'
-```
+根据文档[《搭建Ubuntu环境(获取源码及编译，安装包方式)》](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-package-environment.md)编译主线代码。
 
 ### 进行编译
 
-同步完成后，执行下面的命令编译项目，注意需要使用参数 `--gn-args "build_selinux=true"` 启用 SELinux 。
-
 ```
-./build/prebuilts_download.sh
 ./build.sh --product-name Hi3516DV300 --gn-args "build_selinux=true"
 ```
 
