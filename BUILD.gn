@@ -52,7 +52,7 @@ ohos_shared_library("libload_policy") {
     "system",
     "ramdisk",
   ]
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -87,7 +87,7 @@ ohos_shared_library("librestorecon") {
     "system",
     "ramdisk",
   ]
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -107,7 +107,7 @@ ohos_executable("load_policy") {
     "-DUSE_PCRE2",
     "-w",
   ]
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -127,7 +127,7 @@ ohos_executable("restorecon") {
     "-DUSE_PCRE2",
     "-w",
   ]
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -145,7 +145,7 @@ ohos_executable("selinux_test") {
     "$THIRD_PARTY_PCRE2_DIR:libpcre2",
     "$THIRD_PARTY_SELINUX_DIR:libselinux",
   ]
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   subsystem_name = "security"
 }
@@ -162,21 +162,21 @@ action("build_policy") {
 ohos_prebuilt_etc("build_sepolicy") {
   deps = [ ":build_policy" ]
   source = "$SELINUX_ROOT_DIR/sepolicy/policy.31"
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   relative_install_dir = "selinux/targeted/policy/"
 }
 
 ohos_prebuilt_etc("config") {
   source = "$SELINUX_ROOT_DIR/config/config"
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   relative_install_dir = "selinux/"
 }
 
 ohos_prebuilt_etc("file_contexts") {
   source = "$SELINUX_ROOT_DIR/sepolicy/file_contexts"
-  license_file = "$SELINUX_ROOT_DIR/LICENSE.txt"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
 
   # FIXME 此处不应该改变 file_contexts 的约定路径！

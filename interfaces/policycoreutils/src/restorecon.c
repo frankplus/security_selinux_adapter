@@ -38,7 +38,7 @@ static int restore_init(restore_opts_t * opts)
 
     if (!(opts->hnd = selabel_open(SELABEL_CTX_FILE, selinux_opts,
                                    sizeof(selinux_opts) /
-                                   sizeof(selinux_opt)))) {
+                                   sizeof(selinux_opts)))) {
         return -1;
     }
 
