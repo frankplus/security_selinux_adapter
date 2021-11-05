@@ -23,51 +23,45 @@
 
 #define BUFFLEN (1000)
 
-int main(int argc, char *argv[])
+int OpenFile(char *file)
 {
     FILE *fp = NULL;
     char buf[BUFFLEN];
-    const sleepSeconds = 5;
 
-    int ret = setcon("u:r:kernel:s0");
+    fp = fopen(file, "r");
+    if (fp != NULL) {
+        if (memset_s(buf, sizeof(buf), 0, BUFFLEN) != 0) {
+            return 0;
+        }
+
+        fread(buf, 1, BUFFLEN, fp);
+        fclose(fp);
+        printf("buf %s\n", buf);
+    }
+
+    return 0;
+}
+
+int main(int argc, char *argv[])
+{
+    const sleepSeconds = 1;
+    char *files[] = {
+        "/data/abcd.txt",
+        "/data/abcd2.txt",
+        "/data/abcd3.txt",
+        NULL
+    };
+    int ret = 0;
+
+    ret = setcon("u:r:kernel:s0");
     printf("setcon %d\n", ret);
     ret = setexeccon("u:r:kernel:s0");
     printf("setexeccon %d\n", ret);
 
-    sleep(sleepSeconds);
-
     while (1) {
-        sleep(1);
-        fp = fopen("/data/abcd.txt", "r");
-        if (fp != NULL) {
-            if (memset_s(buf, sizeof(buf), 0, BUFFLEN) != 0) {
-                continue;
-            }
-            fread(buf, 1, BUFFLEN, fp);
-            fclose(fp);
-            printf("buf1 %s\n", buf);
-        }
-
-        sleep(1);
-        fp = fopen("/data/abcd2.txt", "r");
-        if (fp != NULL) {
-            if (memset_s(buf, sizeof(buf), 0, BUFFLEN) != 0) {
-                continue;
-            }
-            fread(buf, 1, BUFFLEN, fp);
-            fclose(fp);
-            printf("buf2 %s\n", buf);
-        }
-
-        sleep(1);
-        fp = fopen("/data/abcd3.txt", "r");
-        if (fp != NULL) {
-            if (memset_s(buf, sizeof(buf), 0, BUFFLEN) != 0) {
-                continue;
-            }
-            fread(buf, 1, BUFFLEN, fp);
-            fclose(fp);
-            printf("buf3 %s\n", buf);
+        for (int i = 0; files[i] != NULL; i++) {
+            sleep(sleepSeconds);
+            OpenFile(files[i]);
         }
     }
 
