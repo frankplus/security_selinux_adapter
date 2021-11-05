@@ -169,6 +169,11 @@ action("build_policy") {
   outputs = [ "$root_out_dir/" ]
 }
 
+action("enable_selinux") {
+  script = "scripts/enable_selinux.sh"
+  outputs = [ "$target_out_dir/" ]
+}
+
 ohos_prebuilt_etc("build_sepolicy") {
   deps = [ ":build_policy" ]
   source = "$SELINUX_ROOT_DIR/sepolicy/policy.31"
@@ -181,6 +186,11 @@ ohos_prebuilt_etc("config") {
   source = "$SELINUX_ROOT_DIR/config/config"
   license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
+  if(enable_selinux) {
+    deps = [
+      ":enable_selinux",
+    ]
+  }
   relative_install_dir = "selinux/"
 }
 
