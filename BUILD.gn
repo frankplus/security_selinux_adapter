@@ -161,12 +161,31 @@ ohos_executable("selinux_test") {
 }
 
 action("build_policy") {
-  script = "scripts/build_policy.sh"
+  script = "$SELINUX_ROOT_DIR/scripts/build_policy.py"
+  args = [
+    "--dst-file",
+    rebase_path(target_out_dir + "/policy.31"),
+    "--tool-path",
+    rebase_path(root_build_dir + "/clang_x64/security/selinux/"),
+  ]
   deps = [
     "$THIRD_PARTY_SELINUX_DIR:checkpolicy($host_toolchain)",
     "$THIRD_PARTY_SELINUX_DIR:secilc($host_toolchain)",
   ]
-  outputs = [ "$root_out_dir/" ]
+  outputs = [ target_out_dir + "/policy.31" ]
+}
+
+action("build_file_contexts_bin") {
+  script = "$SELINUX_ROOT_DIR/scripts/build_contexts.py"
+  args = [
+    "--dst-file",
+    rebase_path(target_out_dir + "/file_contexts.bin"),
+    "--tool-path",
+    rebase_path(root_build_dir + "/clang_x64/security/selinux/"),
+  ]
+  deps = [ "$THIRD_PARTY_SELINUX_DIR:sefcontext_compile($host_toolchain)" ]
+  outputs = [ target_out_dir + "/file_contexts.bin" ]
+  outputs += [ target_out_dir + "/file_contexts" ]
 }
 
 action("enable_selinux") {
@@ -176,10 +195,18 @@ action("enable_selinux") {
 
 ohos_prebuilt_etc("build_sepolicy") {
   deps = [ ":build_policy" ]
-  source = "$SELINUX_ROOT_DIR/sepolicy/policy.31"
+  source = target_out_dir + "/policy.31"
   license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
   relative_install_dir = "selinux/targeted/policy/"
+}
+
+ohos_prebuilt_etc("build_file_contexts") {
+  deps = [ ":build_file_contexts_bin" ]
+  source = target_out_dir + "/file_contexts.bin"
+  license_file = "$SELINUX_ROOT_DIR/LICENSE"
+  part_name = "selinux"
+  relative_install_dir = "selinux/targeted/contexts/"
 }
 
 ohos_prebuilt_etc("config") {
@@ -193,7 +220,8 @@ ohos_prebuilt_etc("config") {
 }
 
 ohos_prebuilt_etc("file_contexts") {
-  source = "$SELINUX_ROOT_DIR/sepolicy/file_contexts"
+  deps = [ ":build_file_contexts_bin" ]
+  source = target_out_dir + "/file_contexts"
   license_file = "$SELINUX_ROOT_DIR/LICENSE"
   part_name = "selinux"
 

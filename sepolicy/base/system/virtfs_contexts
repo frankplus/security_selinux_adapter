@@ -1,0 +1,7 @@
+genfscon rootfs / u:object_r:rootfs:s0
+
+genfscon proc / u:object_r:proc:s0
+
+genfscon selinuxfs / u:object_r:selinuxfs:s0
+
+genfscon sysfs / u:object_r:sysfs:s0

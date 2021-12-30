@@ -1,0 +1,7 @@
+sid kernel u:r:kernel:s0
+sid security u:object_r:kernel:s0
+sid unlabeled u:object_r:unlabeled:s0
+sid fs u:object_r:labeledfs:s0
+sid file u:object_r:unlabeled:s0
+sid init u:object_r:unlabeled:s0
+sid untrusted_hap u:object_r:unlabeled:s0
