@@ -1,0 +1,90 @@
+# Copyright (c) 2021 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+allow domain init:process sigchld;
+
+allow domain domain:process {
+    fork
+    sigchld
+    sigkill
+    sigstop
+    signull
+    signal
+    getsched
+    setsched
+    getsession
+    getpgid
+    setpgid
+    getcap
+    setcap
+    getattr
+    setrlimit
+};
+
+allow domain domain:fd use;
+allow domain init:fd use;
+
+allow domain domain:dir read_dir_perms;
+allow domain domain:{ file lnk_file } read_file_perms;
+allow domain domain:{ fifo_file file } rw_file_perms;
+allow domain domain:unix_dgram_socket { create_socket_perms sendto };
+
+allow domain proc:dir read_dir_perms;
+allow domain proc:lnk_file { getattr read };
+
+allow domain tmpfs:dir { getattr search };
+allow domain tmpfs:chr_file { read write open getattr setattr ioctl map };
+
+allow domain rootfs:dir search;
+allow domain rootfs:lnk_file { read getattr };
+
+allow domain device:dir search;
+
+allow domain dev_type:dir search;
+allow domain dev_type:{ lnk_file chr_file } read_file_perms;
+
+allow domain devpts:dir search;
+
+allow domain socket_device:dir read_dir_perms;
+allow domain {
+    null_device
+    binder_device
+}:chr_file rw_file_perms;
+
+allow domain param_storage:file read_file_perms;
+allow domain param_info:file read_file_perms;
+
+allow domain {
+    system_file
+    system_lib_file
+}:dir read_dir_perms;
+allow domain {
+    system_file
+    system_lib_file
+}:lnk_file { getattr read open };
+
+allow domain system_lib_file:file { execute read open getattr map };
+
+allow domain sysfs:dir search;
+allow domain sysfs:{ lnk_file file } { getattr read };
+
+allow domain system_data_file:dir search;
+
+allow domain selinuxfs:dir search;
+allow domain selinuxfs:file getattr;
+allow domain selinuxfs:filesystem getattr;
+
+allow domain debugfs:dir search;
+
+allow domain fs_type:dir getattr;
+allow domain fs_type:filesystem getattr;
