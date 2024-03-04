@@ -1,0 +1,25 @@
+# Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+allow kanto dev_console_file:chr_file  { read write };
+allow kanto debug_param:file { map open read };
+allow kanto kanto:tcp_socket { create setopt bind listen connect getopt getattr write read };
+allow kanto port:tcp_socket { name_bind name_connect };
+allow kanto node:tcp_socket { node_bind };
+allow kanto kanto:udp_socket { create setopt connect getattr write read };
+allow kanto hilog_param:file { map open read };
+allow kanto dev_unix_socket:dir { search };
+allow kanto data_file:dir { search };
+allow kanto data_log:file { read write create append open ioctl getattr };
+allow kanto data_log:dir { write add_name };
+allow kanto system_etc_file:dir { watch };
